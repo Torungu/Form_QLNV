@@ -61,18 +61,27 @@ document.querySelector("#btnThemNV").addEventListener(
     document.querySelector("#btnThemNV").style.display = "block";
     e.preventDefault();
     let nhanVien = getNV();
-    // let tagTb = document.querySelector("#tbTKNV");
+    let tagTb = document.querySelector("#tbTKNV");
     if (!nhanVien) {
       return;
     }
-    // let checkNV = nhanVien.tknv;
-    // let checkTk = checkAcc(arrNV, checkNV, tagTb);
-    // if (checkTk == false) {
-    //   document.querySelector("#btnThemNV").removeAttribute("data-dismiss");
-    // } else {
-    //   newValue = document.querySelector("#tknv").value;
-    //   nhanVien = { ...nhanVien, tknv: newValue };
-    // }
+    let checkNV = nhanVien.tknv;
+    for (nv of arrNV) {
+      let checkTk = nv.tknv;
+      if (checkNV === checkTk) {
+        document.querySelector("#btnThemNV").removeAttribute("data-dismiss");
+        tagTb.innerHTML = "Tài khoản này đã có";
+        tagTb.style.display = "block";
+        return;
+      } else {
+        document
+          .querySelector("#btnThemNV")
+          .setAttribute("data-dismiss", "modal");
+        tagTb.innerHTML = "";
+        tagTb.style.display = "none";
+        continue;
+      }
+    }
     arrNV.push(nhanVien);
     saveLocalStorage();
     renderArrNV();

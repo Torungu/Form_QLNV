@@ -104,17 +104,3 @@ let checkHour = (min, max, value, span) => {
     return false;
   }
 };
-// let checkAcc = (arr, value, tagSpan) => {
-//   for (nv of arr) {
-//     if (value === nv.tknv) {
-//       tagSpan.innerHTML = "Tài khoản này đã có";
-//       tagSpan.style.display = "block";
-//       isValid = false;
-//     } else {
-//       tagSpan.innerHTML = "";
-//       tagSpan.style.display = "none";
-//       isValid = true;
-//     }
-//   }
-//   return isValid;
-// };
